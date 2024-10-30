@@ -7,7 +7,7 @@ import unicodedata
 
 import pkg_resources
 
-from epitran.rules import Rules
+from epitran_erebus.rules import Rules
 
 logging.basicConfig(level=logging.DEBUG)
 

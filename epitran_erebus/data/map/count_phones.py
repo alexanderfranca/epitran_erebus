@@ -1,13 +1,13 @@
 #!/usr/bin/env
 
-import epitran.xsampa
+import epitran_erebus.xsampa
 import panphon
 import unicodecsv as csv
 
 
 def main(fn):
     ft = panphon.FeatureTable()
-    xs = epitran.xsampa.XSampa()
+    xs = epitran_erebus.xsampa.XSampa()
     with open(fn, 'rb') as f:
         reader = csv.reader(f, encoding='utf-8')
         next(reader)

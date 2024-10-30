@@ -9,7 +9,7 @@ import os.path
 from lxml import etree
 import unicodecsv as csv
 
-import epitran
+import epitran_erebus
 import panphon.featuretable
 
 
@@ -21,7 +21,7 @@ def read_tokens(fn):
 
 def read_input(input_, langscript):
     space = set()
-    epi = epitran.Epitran(langscript)
+    epi = epitran_erebus.Epitran(langscript)
     ft = panphon.featuretable.FeatureTable()
     for dirname in input_[0]:
         for fn in glob.glob(os.path.join(dirname, '*.ltf.xml')):

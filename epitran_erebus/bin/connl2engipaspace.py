@@ -7,11 +7,11 @@ from collections import Counter
 
 import unicodecsv as csv
 
-import epitran
-import epitran.flite
+import epitran_erebus
+import epitran_erebus.flite
 import panphon
 
-logger = logging.getLogger('epitran')
+logger = logging.getLogger('epitran_erebus')
 
 
 def normpunc(flite, s):
@@ -62,7 +62,7 @@ def print_space(output, space):
 
 
 def main(infiles, output):
-    flite = epitran.flite.Flite()
+    flite = epitran_erebus.flite.Flite()
     ft = panphon.FeatureTable()
     space = Counter()
     for fn in infiles:

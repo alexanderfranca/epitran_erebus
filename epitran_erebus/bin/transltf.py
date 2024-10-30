@@ -4,12 +4,12 @@ from __future__ import print_function
 import sys
 
 from lxml import etree
-import epitran
-import epitran.vector
+import epitran_erebus
+import epitran_erebus.vector
 
 def main(fn):
-    epi = epitran.Epitran('uig-Arab')
-    vwis = epitran.vector.VectorsWithIPASpace('uig-Arab', ['uig-Arab'])
+    epi = epitran_erebus.Epitran('uig-Arab')
+    vwis = epitran_erebus.vector.VectorsWithIPASpace('uig-Arab', ['uig-Arab'])
     tree = etree.parse(fn)
     root = tree.getroot()
     for token in root.findall('.//TOKEN'):

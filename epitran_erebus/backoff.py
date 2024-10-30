@@ -3,11 +3,11 @@ from __future__ import (print_function, absolute_import,
                         unicode_literals)
 
 import regex as re
-from . import _epitran
+from . import _epitran_erebus
 import panphon.featuretable
-from epitran.puncnorm import PuncNorm
-from epitran.xsampa import XSampa
-from epitran.stripdiacritics import StripDiacritics
+from epitran_erebus.puncnorm import PuncNorm
+from epitran_erebus.xsampa import XSampa
+from epitran_erebus.stripdiacritics import StripDiacritics
 
 
 class Backoff(object):
@@ -22,7 +22,7 @@ class Backoff(object):
             cedict_file (str): path to the CC-CEdict dictionary file
             (necessary only when cmn-Hans or cmn-Hant are used)
         """
-        self.langs = [_epitran.Epitran(c, cedict_file=cedict_file)
+        self.langs = [_epitran_erebus.Epitran(c, cedict_file=cedict_file)
                       for c in lang_script_codes]
         self.num_re = re.compile(r'\p{Number}+')
         self.ft = panphon.featuretable.FeatureTable()

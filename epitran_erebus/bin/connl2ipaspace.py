@@ -5,11 +5,11 @@ import codecs
 import logging
 from collections import Counter
 
-import epitran
+import epitran_erebus
 import panphon
 import unicodecsv as csv
 
-logger = logging.getLogger('epitran')
+logger = logging.getLogger('epitran_erebus')
 
 
 def normpunc(epi, s):
@@ -80,7 +80,7 @@ def print_space(output, space):
 
 
 def main(code, op, infiles, output):
-    epi = epitran.Epitran(code)
+    epi = epitran_erebus.Epitran(code)
     ft = panphon.FeatureTable()
     space = Counter()
     for fn in infiles:

@@ -3,13 +3,13 @@ import logging
 from typing import Union
 
 import panphon.featuretable
-from epitran.epihan import Epihan, EpihanTraditional, EpiJpan
-from epitran.flite import FliteLexLookup
-from epitran.puncnorm import PuncNorm
-from epitran.simple import SimpleEpitran
-from epitran.xsampa import XSampa
+from epitran_erebus.epihan import Epihan, EpihanTraditional, EpiJpan
+from epitran_erebus.flite import FliteLexLookup
+from epitran_erebus.puncnorm import PuncNorm
+from epitran_erebus.simple import SimpleEpitran
+from epitran_erebus.xsampa import XSampa
 
-logger = logging.getLogger('epitran')
+logger = logging.getLogger('epitran_erebus')
 logger.setLevel(logging.WARNING)
 
 class Epitran(object):

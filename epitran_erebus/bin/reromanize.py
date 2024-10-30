@@ -2,12 +2,12 @@
 
 from __future__ import print_function
 
-import epitran.reromanize
+import epitran_erebus.reromanize
 import argparse
 import sys
 
 def main(code, table):
-    rr = epitran.reromanize.ReRomanizer(code, table)
+    rr = epitran_erebus.reromanize.ReRomanizer(code, table)
     for line in sys.stdin:
         line = line.decode('utf-8')
         tokens = line.strip().split('\t')

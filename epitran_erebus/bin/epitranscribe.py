@@ -3,12 +3,12 @@
 
 import sys
 import unicodedata
-import epitran
+import epitran_erebus
 import argparse
 
 
 def main(code):
-    epi = epitran.Epitran(code)
+    epi = epitran_erebus.Epitran(code)
     for line in sys.stdin:  # pointless
         line = line.decode('utf-8')
         line = unicodedata.normalize('NFD', line.lower())

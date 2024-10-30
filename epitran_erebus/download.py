@@ -5,7 +5,7 @@ import gzip
 CEDICT_URL='https://www.mdbg.net/chinese/export/cedict/cedict_1_0_ts_utf-8_mdbg.txt.gz'
 
 def get_dir():
-    data_dir = os.path.expanduser('~/epitran_data/')
+    data_dir = os.path.expanduser('~/epitran_erebus_data/')
     os.makedirs(data_dir, exist_ok=True)
     return data_dir
 

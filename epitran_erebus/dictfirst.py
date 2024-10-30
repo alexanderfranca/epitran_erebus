@@ -1,4 +1,4 @@
-import epitran
+import epitran_erebus
 
 class DictFirst:
     """If words are in a dictionary, use one model; if words are not, use another fallback.
@@ -9,8 +9,8 @@ class DictFirst:
         dict_fn (str): file path to text file containing dictionary, one word per line
     """
     def __init__(self, code1, code2, dict_fn):
-        self.epi1 = epitran.Epitran(code1)
-        self.epi2 = epitran.Epitran(code2)
+        self.epi1 = epitran_erebus.Epitran(code1)
+        self.epi2 = epitran_erebus.Epitran(code2)
         self.dictionary = self._read_dictionary(dict_fn)
 
     def _read_dictionary(self, dict_fn):

@@ -5,11 +5,11 @@ from __future__ import print_function
 import argparse
 import codecs
 
-import epitran.vector
+import epitran_erebus.vector
 
 
 def main(code, space, infile):
-    vec = epitran.vector.VectorsWithIPASpace(code, space)
+    vec = epitran_erebus.vector.VectorsWithIPASpace(code, space)
     with codecs.open(infile, 'r', 'utf-8') as f:
         for line in f:
             fields = line.split('\t')

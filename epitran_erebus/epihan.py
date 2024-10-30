@@ -9,7 +9,7 @@ import regex as re
 from . import cedict
 from . import rules
 from . import download
-from epitran.ligaturize import ligaturize
+from epitran_erebus.ligaturize import ligaturize
 
 
 class MissingData(Exception):
@@ -32,7 +32,7 @@ class Epihan(object):
 
     def __init__(self, ligatures=False, cedict_file=None,
                  rules_file='pinyin-to-ipa.txt', tones=False):
-        """Construct epitran object for Chinese
+        """Construct epitran_erebus object for Chinese
 
         Args:
             ligatures (bool): if True, use ligatures instead of standard IPA
@@ -47,7 +47,7 @@ class Epihan(object):
             if download.cedict_exists():
                 cedict_file = download.get_cedict_file()
             else:
-                raise MissingData('Download CC-CEDICT with "epitran.download.cedict()')
+                raise MissingData('Download CC-CEDICT with "epitran_erebus.download.cedict()')
         if tones:
             rules_file = os.path.join('data', 'rules', 'pinyin-to-ipa-tones.txt')
         else:
@@ -104,7 +104,7 @@ class Epihan(object):
 
 class EpihanTraditional(Epihan):
     def __init__(self, ligatures=False, cedict_file=None, tones=False, rules_file='pinyin-to-ipa.txt'):
-        """Construct epitran object for Traditional Chinese
+        """Construct epitran_erebus object for Traditional Chinese
 
         Args:
             ligatures (bool): if True, use ligatures instead of standard IPA
@@ -116,7 +116,7 @@ class EpihanTraditional(Epihan):
             if download.cedict_exists():
                 cedict_file = download.get_cedict_file()
             else:
-                raise MissingData('Download CC-CEDICT with "epitran.download.cedict().')
+                raise MissingData('Download CC-CEDICT with "epitran_erebus.download.cedict().')
         if tones:
             rules_file = os.path.join('data', 'rules', 'pinyin-to-ipa-tones.txt')
         else:
@@ -128,7 +128,7 @@ class EpihanTraditional(Epihan):
 
 class EpiJpan(object):
     def __init__(self, ligatures=False, cedict_file=None, tones=False):
-        """Construct epitran object for Japanese
+        """Construct epitran_erebus object for Japanese
 
         Args:
             ligatures (bool): if True, use ligatures instead of standard IPA

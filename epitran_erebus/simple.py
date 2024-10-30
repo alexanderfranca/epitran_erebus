@@ -12,17 +12,17 @@ import regex
 
 import panphon
 from jamo import h2j, j2hcj
-from epitran.exceptions import DatafileError, MappingError, FeatureValueError
-from epitran.ligaturize import ligaturize
-from epitran.ppprocessor import PrePostProcessor
-from epitran.puncnorm import PuncNorm
-from epitran.stripdiacritics import StripDiacritics
+from epitran_erebus.exceptions import DatafileError, MappingError, FeatureValueError
+from epitran_erebus.ligaturize import ligaturize
+from epitran_erebus.ppprocessor import PrePostProcessor
+from epitran_erebus.puncnorm import PuncNorm
+from epitran_erebus.stripdiacritics import StripDiacritics
 
-logger = logging.getLogger('epitran')
+logger = logging.getLogger('epitran_erebus')
 
 
 class SimpleEpitran(object):
-    """The backend object epitran uses for most languages
+    """The backend object epitran_erebus uses for most languages
 
     :param code str: ISO 639-3 code and ISO 15924 code joined with a hyphen
     :param preproc bool, optional: if True, apply preprocessor

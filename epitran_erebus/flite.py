@@ -13,8 +13,8 @@ import regex as re
 
 import panphon
 import unicodecsv as csv
-from epitran.ligaturize import ligaturize
-from epitran.puncnorm import PuncNorm
+from epitran_erebus.ligaturize import ligaturize
+from epitran_erebus.puncnorm import PuncNorm
 
 if os.name == 'posix' and sys.version_info[0] < 3:
     import subprocess32 as subprocess
@@ -22,7 +22,7 @@ else:
     import subprocess
 
 logging.basicConfig(level=logging.CRITICAL)
-logger = logging.getLogger('epitran')
+logger = logging.getLogger('epitran_erebus')
 
 
 if sys.version_info[0] == 3:

@@ -8,9 +8,9 @@ import unicodedata
 
 import regex as re
 
-from epitran.exceptions import DatafileError
+from epitran_erebus.exceptions import DatafileError
 
-logger = logging.getLogger('epitran')
+logger = logging.getLogger('epitran_erebus')
 
 
 def none2str(x):

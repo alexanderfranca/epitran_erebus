@@ -6,7 +6,7 @@ from unicodedata import normalize
 
 import pkg_resources
 
-import epitran
+import epitran_erebus
 import unicodecsv as csv
 
 
@@ -24,7 +24,7 @@ class ReRomanizer(object):
             table (str): Name of re-romanization table
             decompose (bool): apply decomposing normalization
         """
-        self.epi = epitran.Epitran(code, cedict_file=cedict_file)
+        self.epi = epitran_erebus.Epitran(code, cedict_file=cedict_file)
         self.mapping = self._load_reromanizer(table, decompose)
 
     def _load_reromanizer(self, table, decompose):

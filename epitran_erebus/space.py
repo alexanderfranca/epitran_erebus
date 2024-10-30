@@ -6,7 +6,7 @@ import os
 
 import pkg_resources
 import unicodecsv as csv
-from epitran import Epitran
+from epitran_erebus import Epitran
 
 
 class Space(object):
