@@ -201,13 +201,13 @@ class FliteLexLookup(Flite):
     def english_g2p(self, text):
         text = self.normalize(text).lower()
         try:
-            arpa_text = subprocess.check_output(['lex_lookup', text])
+            arpa_text = subprocess.check_output(['lex_lookup_erebus', text])
             arpa_text = arpa_text.decode('utf-8')
         except OSError:
-            logger.warning('lex_lookup (from flite) is not installed.')
+            logger.warning('lex_lookup_erebus (from flite) is not installed.')
             arpa_text = ''
         except subprocess.CalledProcessError:
-            logger.warning('Non-zero exit status from lex_lookup.')
+            logger.warning('Non-zero exit status from lex_lookup_erebus.')
             arpa_text = ''
         # Split on newlines and take the first element (in case lex_lookup
         # returns multiple lines).
