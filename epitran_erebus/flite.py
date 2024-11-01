@@ -7,6 +7,7 @@ import os.path
 import string
 import sys
 import unicodedata
+from pprint import pprint
 
 import pkg_resources
 import regex as re
@@ -72,6 +73,23 @@ class Flite(object):
         arpa_text = arpa_text.strip()
         arpa_list = self.arpa_text_to_list(arpa_text)
         arpa_list = map(lambda d: re.sub(r'\d', '', d), arpa_list)
+        # TODO :changing from here
+        arpa_list = [d for d in arpa_list if d in self.arpa_map]
+        #pprint(arpa_list)  # Debugging line to check contents
+
+        # Now apply the map, which should only contain valid entries
+        ipa_list = map(lambda d: self.arpa_map.get(d, ''), arpa_list)
+        text = ''.join(ipa_list)
+        #pprint(list(ipa_list))  # Convert to list to see the mapped IPA symbols
+
+        #pprint(arpa_list)
+        #pprint(arpa_text)
+        #ipa_list = map(lambda d: self.arpa_map[d], arpa_list)
+        #text = ''.join(ipa_list)
+        #pprint(ipa_list)
+        #sys.exit()
+        # FINISHED changes
+
         ipa_list = map(lambda d: self.arpa_map[d], arpa_list)
         text = ''.join(ipa_list)
         return text
@@ -201,8 +219,29 @@ class FliteLexLookup(Flite):
     def english_g2p(self, text):
         text = self.normalize(text).lower()
         try:
+            raw_output_from_lex_lookup = []
             arpa_text = subprocess.check_output(['lex_lookup_erebus', text])
             arpa_text = arpa_text.decode('utf-8')
+            arpa_text_list = arpa_text.split("\n")
+            start_reading = False
+            for arpa_text_line in arpa_text_list:
+                if start_reading is False:
+                    if re.match('^\(', arpa_text_line):
+                        start_reading = True
+                        raw_output_from_lex_lookup.append(arpa_text_line)
+                    else:
+                        continue
+                else:
+                    raw_output_from_lex_lookup.append(arpa_text_line)
+
+                #print(f'line: {arpa_text_line}')
+
+            fixed_output = '\n'.join(raw_output_from_lex_lookup)
+            arpa_text = fixed_output
+            #print(f'raw_output_list: {raw_output_from_lex_lookup}')
+            #print(f'arpa_text do jeito que deveria ser: {arpa_text}')
+            #print(f'fixed output: {fixed_output}')
+            #print(f'type: {type(arpa_text)}')
         except OSError:
             logger.warning('lex_lookup_erebus (from flite) is not installed.')
             arpa_text = ''
